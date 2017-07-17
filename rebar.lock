@@ -1,0 +1,20 @@
+{"1.1.0",
+[{<<"goldrush">>,{pkg,<<"goldrush">>,<<"0.1.8">>},2},
+ {<<"lager">>,{pkg,<<"lager">>,<<"3.2.1">>},1},
+ {<<"mochiweb">>,
+  {git,"https://github.com/pingjianwei/mochiweb.git",
+       {ref,"aacb8f2e2fd98a729bd4f54e028c6b742bfb9dcb"}},
+  0},
+ {<<"trane">>,
+  {git,"https://github.com/pingjianwei/trane",
+       {ref,"87ad5083e54fc3ebbb4ad75eb1e71c8da5b5dec0"}},
+  0},
+ {<<"xfutils">>,
+  {git,"https://github.com/simonxu72/erlang-xfutils",
+       {ref,"44b92c43efaba7dd57fc05032e8feee6df9c17a1"}},
+  0}]}.
+[
+{pkg_hash,[
+ {<<"goldrush">>, <<"2024BA375CEEA47E27EA70E14D2C483B2D8610101B4E852EF7F89163CDB6E649">>},
+ {<<"lager">>, <<"EEF4E18B39E4195D37606D9088EA05BF1B745986CF8EC84F01D332456FE88D17">>}]}
+].

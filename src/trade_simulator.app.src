@@ -1,0 +1,17 @@
+{application, trade_simulator,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { trade_simulator_app, []}},
+  {applications,
+   [kernel
+    ,stdlib
+    , lager
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.

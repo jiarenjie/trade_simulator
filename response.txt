@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=Utf-8">
+</head>
+<body onload="document.getElementById('from').submit();">
+<!-- <body> -->
+<form id="from" action="https://gateway.95516.com/gateway/api/frontTransReq.do" method="post">
+<!-- <form id="from" action="https://101.231.204.80:5000/gateway/api/frontTransReq.d" method="post"> -->
+<input type="hidden" name="version" id="version" value="5.0.0"/>
+<input type="hidden" name="encoding" id="encoding" value="UTF-8"/>
+<input type="hidden" name="certId" id="certId" value="70469027189"/>
+<input type="hidden" name="signature" id="signature" value="aFWc2dk8dsbWE88tSdXoP2iuR7OmcpdQTX8DOtPu84UaEYgRqeSYmAqKLIkFcAOUREHwE4FGaBeOm0zxe9dZmQibaRqMTjpxO0mez6fZOh7y/wtobS1NSwbZUjmvx67lAzoXwNX05aXpEe18idyD4MieRNQWr+2vtMFjy1QcMQTqEx/aSYXk74pgGHqeqgy6lQRQQD6nGvd4RSyyi9Kodx7sqTJ6jqIlb9AqWAiiTvEs0fcENEznuxfibtOLzsrk6xGTXi0Ys9tmpAJ9ppIf75zo5/w/rJfJAdNi+UeFuEKyazHR1t2z8l6wLC47bSBGJHD+eiM8D0gYv5kmPtz0Pg=="/>
+<input type="hidden" name="signMethod" id="signMethod" value="01"/>
+<input type="hidden" name="txnType" id="txnType" value="01"/>
+<input type="hidden" name="txnSubType" id="txnSubType" value="01"/>
+<input type="hidden" name="bizType" id="bizType" value="000201"/>
+<input type="hidden" name="channelType" id="channelType" value="07"/>
+<input type="hidden" name="frontUrl" id="frontUrl" value="http://localhost:8888/pg/pay_succ"/>
+<input type="hidden" name="backUrl" id="backUrl" value="http://localhost:8888/pg/pay_succ_info"/>
+<input type="hidden" name="accessType" id="accessType" value="0"/>
+<input type="hidden" name="txnAmt" id="txnAmt" value="100"/>
+<input type="hidden" name="termId" id="termId" value="00000002"/>
+<input type="hidden" name="merId" id="merId" value="898319849000019"/>
+<input type="hidden" name="orderId" id="orderId" value="20170717155914018266356"/>
+
+<input type="hidden" name="txnTime" id="txnTime" value="20170717155914"/>
+<input type="hidden" name="currencyCode" id="currencyCode" value="156"/>
+<input type="hidden" name="reqReserved" id="reqReserved" value="{pI=test,aI=03429500040006212}"/>
+
+<input type="hidden" name="reserved" id="reserved" value="{cardNumberLock=1}"/>
+<input type="hidden" name="defaultPayType" id="defaultPayType" value="0001"/>
+<!-- <input type="submit" value="提交"> -->
+</form>
+
+</body>
+</html>

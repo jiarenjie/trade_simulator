@@ -1,0 +1,26 @@
+2017-07-17 13:41:06.430 [error] <0.216.0> gen_server <0.216.0> terminated with reason: bad argument in call to erlang:binary_to_list("<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=Utf-8\"...") in pay_simulator:send_mcht_req/0 line 49
+2017-07-17 13:41:06.490 [error] <0.216.0> CRASH REPORT Process <0.216.0> with 1 neighbours exited with reason: bad argument in call to erlang:binary_to_list("<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=Utf-8\"...") in pay_simulator:send_mcht_req/0 line 49
+2017-07-17 13:45:21.923 [error] <0.215.0> gen_server <0.215.0> terminated with reason: no match of right hand value {error,{failed_connect,[{to_address,{"localhost",80}},{inet,[inet],econnrefused}]}} in pay_simulator:send_mcht_req/0 line 47
+2017-07-17 13:45:21.956 [error] <0.215.0> CRASH REPORT Process <0.215.0> with 1 neighbours exited with reason: no match of right hand value {error,{failed_connect,[{to_address,{"localhost",80}},{inet,[inet],econnrefused}]}} in pay_simulator:send_mcht_req/0 line 47 in gen_server:terminate/7 line 812
+2017-07-17 13:46:22.571 [error] <0.215.0> 2550- fatal: {endtag_does_not_match,{was,head,should_have_been,meta}}
+2017-07-17 13:46:22.572 [error] <0.215.0> gen_server <0.215.0> terminated with reason: {fatal,{{endtag_does_not_match,{was,head,should_have_been,meta}},{file,file_name_unknown},{line,5},{col,3}}} in xmerl_scan:fatal/2 line 4117
+2017-07-17 13:46:22.649 [error] <0.215.0> CRASH REPORT Process <0.215.0> with 1 neighbours exited with reason: {fatal,{{endtag_does_not_match,{was,head,should_have_been,meta}},{file,file_name_unknown},{line,5},{col,3}}} in gen_server:terminate/7 line 812
+2017-07-17 15:14:30.072 [error] <0.215.0> gen_server <0.215.0> terminated with reason: call to undefined function lists:nth/1 from pay_simulator:parse_up_html/1 line 56
+2017-07-17 15:14:30.110 [error] <0.215.0> CRASH REPORT Process <0.215.0> with 1 neighbours exited with reason: call to undefined function lists:nth(4) in gen_server:terminate/7 line 812
+2017-07-17 15:15:24.387 [error] <0.215.0> 3907- fatal: expected_element_start_tag
+2017-07-17 15:15:24.387 [error] <0.215.0> gen_server <0.215.0> terminated with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in xmerl_scan:fatal/2 line 4117
+2017-07-17 15:15:24.465 [error] <0.215.0> CRASH REPORT Process <0.215.0> with 1 neighbours exited with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in gen_server:terminate/7 line 812
+2017-07-17 15:24:36.165 [error] <0.215.0> 3907- fatal: expected_element_start_tag
+2017-07-17 15:24:36.165 [error] <0.215.0> gen_server <0.215.0> terminated with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in xmerl_scan:fatal/2 line 4117
+2017-07-17 15:24:36.215 [error] <0.215.0> CRASH REPORT Process <0.215.0> with 1 neighbours exited with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in gen_server:terminate/7 line 812
+2017-07-17 15:37:42.023 [error] <0.215.0> 3907- fatal: expected_element_start_tag
+2017-07-17 15:37:42.023 [error] <0.215.0> gen_server <0.215.0> terminated with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in xmerl_scan:fatal/2 line 4117
+2017-07-17 15:37:42.079 [error] <0.215.0> CRASH REPORT Process <0.215.0> with 1 neighbours exited with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in gen_server:terminate/7 line 812
+2017-07-17 15:40:07.937 [error] <0.224.0> 3907- fatal: expected_element_start_tag
+2017-07-17 15:40:07.937 [error] <0.224.0> gen_server <0.224.0> terminated with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in xmerl_scan:fatal/2 line 4117
+2017-07-17 15:40:07.937 [error] <0.224.0> CRASH REPORT Process <0.224.0> with 1 neighbours exited with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in gen_server:terminate/7 line 812
+2017-07-17 15:40:20.900 [error] <0.215.0> 3907- fatal: expected_element_start_tag
+2017-07-17 15:40:20.900 [error] <0.215.0> gen_server <0.215.0> terminated with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in xmerl_scan:fatal/2 line 4117
+2017-07-17 15:40:20.946 [error] <0.215.0> CRASH REPORT Process <0.215.0> with 1 neighbours exited with reason: {fatal,{expected_element_start_tag,{file,file_name_unknown},{line,1},{col,2}}} in gen_server:terminate/7 line 812
+2017-07-17 17:03:25.749 [error] <0.221.0> gen_server <0.221.0> terminated with reason: "paysunccess"
+2017-07-17 17:03:25.812 [error] <0.221.0> CRASH REPORT Process <0.221.0> with 1 neighbours exited with reason: "paysunccess" in gen_server:terminate/7 line 812

@@ -11,7 +11,24 @@
 -include_lib("xmerl/include/xmerl.hrl").
 
 %% API
--export([send_mcht_req/0]).
+-export([send_mcht_req/0,pay_simulator_start/2]).
+
+
+pay_simulator_start(TimesPerSecond,TotalTises) ->
+  F = fun(_X,[A,Acc])->
+    lager:info("world is beatifull!"),
+    pay_server:start_link(),
+    case A-1 =:= 0 of
+      false ->[A-1,Acc-1];
+      true ->
+        timer:sleep(1000),
+        [A,Acc-1]
+    end
+    end,
+
+  lists:foldl( F,[TimesPerSecond,TotalTises],lists:seq(1,TotalTises)).
+
+
 
 sign_feilds() ->
   [merchId,tranDate,tranId,tranTime,tranAmt,orderDesc,trustBackUrl,trustFrontUrl].
@@ -36,14 +53,14 @@ send_mcht_req() ->
   Signature = sign_hex(SignStr, PrivateKey),
   PostVals = lists:flatten([ReqData,{signature,Signature}]),
   PostString = xfutils:post_vals_to_string(PostVals),
-  lager:info("PostString=~p",[PostString]),
+  %lager:info("PostString=~p",[PostString]),
   Url = "http://localhost:8888/pg/pay/",
  % RequestResult = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
   %lager:info("Notify result = ~p~n ,post_vals=~p", [RequestResult, PostVals])
 
   {ok,{_,_,Body}} = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
-  XmlElt = parse_up_html(Body),
-  lager:info("Notify result = ~p~n ", [XmlElt])
+  XmlElt = parse_up_html(Body)
+  %lager:info("Notify result = ~p~n ", [XmlElt])
   %lager:info("Notify result = ~p~n ", [Body])
   .
 

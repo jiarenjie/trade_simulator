@@ -145,3 +145,42 @@
 2017-07-17 18:00:43.375 [info] <0.208.0>@pay_simulator:send_mcht_req:39 PostString=<<"merchId=00002&tranDate=20170717&tranId=20170717180042878554&tranTime=180042&tranAmt=100&orderDesc=%7BpI%3Dtest%2CaI%3D03429500040006212%7D&trustBackUrl=http%3A%2F%2Ftest.trust-one.com%2Fpg%2Fsimu_mcht_back_succ_info&trustFrontUrl=http%3A%2F%2Ftest.trust-one.com%2Fpg%2Fsimu_mcht_front_succ&signature=1726BA8E3306E76F19351D55E08856C625C64A4FDB09A0CB1BFA37707D6693C6DD08090365516EA68D8A1A6FB1A763D304A6099A87C0D288CDDDF2F6AEC4029504FA4A936685084278159B9775F56F14793476CE1B48EEE48F2AC0958FC12D59FA63B0E70D80821806ACFDF7D06189DBC4005C54584F5C97BA169DA99DDB55AF842BF41F40FC00358DAB4DF7AAA495C5FD75343F7E2D92946DC5417D9BB4D6592C55892B4543139A6B00B1CBCC1FD5CF29AE2C73F03AD987D52C201E1C01FD8D084EB16B4017F3CDF777ABF7F5E7C22202E4CFDB1B9CD5B2FBEC5B33BBB141A66FE328346C2115022F5054E45124D362C5567831A6EDBD7B79364CF100E83DEA">>
 2017-07-17 18:00:44.504 [info] <0.208.0>@pay_simulator:send_mcht_req:46 Notify result = [{"version","5.0.0"},{"encoding","UTF-8"},{"certId","70469027189"},{"signature","Rj/5NB6X6nNsajvs8i2qzBEOZ1Fy//j+ZGfPS1mq62mS9qKvPhyI2LRdf54NdIytAW9VLOBa1ijH+gg8qnIACOr0xFpciUS5YeS6IGgwlAlBYKUJVJXOjMJ8DpZeeoWWovj6vFuTms/T4ioXBuuBsmbo6oOnLono6zF5SffAA3WGw81WlQUMxlrnF5H18vohsM67d24HS1HisJ8TJVp7dlO1CM10SjGTrQOtplVwMRC9y6ZZJboksz41GB/eF6eDLrckIeaMsF2aAjmzCRQFr87IjyT9Lzq62K6xKUT20fMcoTG1cdCwyH81j/SdmjE4SeJA6KbFkG1kfpPrM4X18A=="},{"signMethod","01"},{"txnType","01"},{"txnSubType","01"},{"bizType","000201"},{"channelType","07"},{"frontUrl","http://localhost:8888/pg/pay_succ"},{"backUrl","http://localhost:8888/pg/pay_succ_info"},{"accessType","0"},{"txnAmt","100"},{"termId","00000002"},{"merId","898319849000019"},{"orderId","20170717180044083966211"},{"txnTime","20170717180044"},{"currencyCode","156"},{"reqReserved","{pI=test,aI=03429500040006212}"},{"reserved","{cardNumberLock=1}"},{"defaultPayType","0001"}]
  
+2017-07-20 16:00:17.906 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 16:00:17.911 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 16:05:39.165 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 16:05:39.170 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 16:29:45.618 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 16:29:45.623 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:15:45.159 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:15:45.164 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:16:05.915 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:16:05.917 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:19:10.844 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:19:10.849 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:19:13.377 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:19:13.380 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:20:40.888 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:20:40.893 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:20:55.246 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:20:55.252 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:21:00.112 [info] <0.161.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:21:00.115 [info] <0.161.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:23:16.764 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:23:16.769 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:23:19.991 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:23:20.996 [info] <0.174.0>@pay_simulator:pay_simulator_start:25 FORMAT ERROR: "~p" [2,7]
+2017-07-20 18:23:20.996 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:29:11.640 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:29:11.649 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:29:14.692 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:29:14.695 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:11.706 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:37:11.710 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:37:15.060 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:15.064 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:16.065 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:17.067 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:18.068 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:19.068 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:20.069 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:21.070 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!

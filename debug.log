@@ -310,3 +310,142 @@
 2017-07-17 18:00:43.677 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.213.0>
 2017-07-17 18:00:44.504 [info] <0.208.0>@pay_simulator:send_mcht_req:46 Notify result = [{"version","5.0.0"},{"encoding","UTF-8"},{"certId","70469027189"},{"signature","Rj/5NB6X6nNsajvs8i2qzBEOZ1Fy//j+ZGfPS1mq62mS9qKvPhyI2LRdf54NdIytAW9VLOBa1ijH+gg8qnIACOr0xFpciUS5YeS6IGgwlAlBYKUJVJXOjMJ8DpZeeoWWovj6vFuTms/T4ioXBuuBsmbo6oOnLono6zF5SffAA3WGw81WlQUMxlrnF5H18vohsM67d24HS1HisJ8TJVp7dlO1CM10SjGTrQOtplVwMRC9y6ZZJboksz41GB/eF6eDLrckIeaMsF2aAjmzCRQFr87IjyT9Lzq62K6xKUT20fMcoTG1cdCwyH81j/SdmjE4SeJA6KbFkG1kfpPrM4X18A=="},{"signMethod","01"},{"txnType","01"},{"txnSubType","01"},{"bizType","000201"},{"channelType","07"},{"frontUrl","http://localhost:8888/pg/pay_succ"},{"backUrl","http://localhost:8888/pg/pay_succ_info"},{"accessType","0"},{"txnAmt","100"},{"termId","00000002"},{"merId","898319849000019"},{"orderId","20170717180044083966211"},{"txnTime","20170717180044"},{"currencyCode","156"},{"reqReserved","{pI=test,aI=03429500040006212}"},{"reserved","{cardNumberLock=1}"},{"defaultPayType","0001"}]
  
+2017-07-20 16:00:17.752 [debug] <0.216.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 16:00:17.752 [debug] <0.218.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 16:00:17.752 [debug] <0.220.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 16:00:17.760 [debug] <0.222.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 16:00:17.838 [debug] <0.203.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.224.0>
+2017-07-20 16:00:17.838 [debug] <0.202.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.225.0>
+2017-07-20 16:00:17.838 [debug] <0.204.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.226.0>
+2017-07-20 16:00:17.838 [debug] <0.204.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.227.0>
+2017-07-20 16:00:17.906 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 16:00:17.911 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 16:00:18.199 [debug] <0.212.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 16:05:39.029 [debug] <0.213.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 16:05:39.029 [debug] <0.215.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 16:05:39.029 [debug] <0.217.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 16:05:39.037 [debug] <0.219.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 16:05:39.116 [debug] <0.200.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.221.0>
+2017-07-20 16:05:39.116 [debug] <0.199.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.222.0>
+2017-07-20 16:05:39.116 [debug] <0.201.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.223.0>
+2017-07-20 16:05:39.116 [debug] <0.201.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.224.0>
+2017-07-20 16:05:39.165 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 16:05:39.170 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 16:05:39.500 [debug] <0.209.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 16:29:45.477 [debug] <0.213.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 16:29:45.486 [debug] <0.219.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 16:29:45.477 [debug] <0.215.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 16:29:45.477 [debug] <0.217.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 16:29:45.554 [debug] <0.200.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.221.0>
+2017-07-20 16:29:45.554 [debug] <0.199.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.222.0>
+2017-07-20 16:29:45.563 [debug] <0.201.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.223.0>
+2017-07-20 16:29:45.563 [debug] <0.201.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.224.0>
+2017-07-20 16:29:45.618 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 16:29:45.623 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 16:29:45.949 [debug] <0.209.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:15:45.010 [debug] <0.197.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 18:15:45.011 [debug] <0.201.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 18:15:45.019 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 18:15:45.011 [debug] <0.199.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 18:15:45.091 [debug] <0.184.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.205.0>
+2017-07-20 18:15:45.091 [debug] <0.183.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.206.0>
+2017-07-20 18:15:45.100 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.207.0>
+2017-07-20 18:15:45.100 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.208.0>
+2017-07-20 18:15:45.159 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:15:45.164 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:15:45.477 [debug] <0.193.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:16:05.915 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:16:05.917 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:16:06.308 [debug] <0.221.0> Supervisor inet_gethost_native_sup started undefined at pid <0.222.0>
+2017-07-20 18:16:06.309 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.221.0>
+2017-07-20 18:19:10.712 [debug] <0.197.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 18:19:10.712 [debug] <0.199.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 18:19:10.712 [debug] <0.201.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 18:19:10.720 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 18:19:10.794 [debug] <0.184.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.205.0>
+2017-07-20 18:19:10.794 [debug] <0.183.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.206.0>
+2017-07-20 18:19:10.794 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.207.0>
+2017-07-20 18:19:10.795 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.208.0>
+2017-07-20 18:19:10.844 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:19:10.849 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:19:11.184 [debug] <0.193.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:19:13.377 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:19:13.380 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:19:13.758 [debug] <0.221.0> Supervisor inet_gethost_native_sup started undefined at pid <0.222.0>
+2017-07-20 18:19:13.758 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.221.0>
+2017-07-20 18:20:39.676 [debug] <0.186.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 18:20:39.676 [debug] <0.188.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 18:20:39.676 [debug] <0.184.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 18:20:39.685 [debug] <0.190.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 18:20:39.760 [debug] <0.171.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.192.0>
+2017-07-20 18:20:39.761 [debug] <0.170.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.193.0>
+2017-07-20 18:20:39.761 [debug] <0.172.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.194.0>
+2017-07-20 18:20:39.761 [debug] <0.172.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.195.0>
+2017-07-20 18:20:40.145 [debug] <0.180.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:20:40.888 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:20:40.893 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:20:54.030 [debug] <0.184.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 18:20:54.030 [debug] <0.186.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 18:20:54.030 [debug] <0.188.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 18:20:54.037 [debug] <0.190.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 18:20:54.109 [debug] <0.171.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.192.0>
+2017-07-20 18:20:54.109 [debug] <0.170.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.193.0>
+2017-07-20 18:20:54.117 [debug] <0.172.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.194.0>
+2017-07-20 18:20:54.117 [debug] <0.172.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.195.0>
+2017-07-20 18:20:54.501 [debug] <0.180.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:20:55.246 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:20:55.252 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:21:00.112 [info] <0.161.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:21:00.115 [info] <0.161.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:21:00.503 [debug] <0.208.0> Supervisor inet_gethost_native_sup started undefined at pid <0.209.0>
+2017-07-20 18:21:00.503 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.208.0>
+2017-07-20 18:23:16.623 [debug] <0.197.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 18:23:16.623 [debug] <0.199.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 18:23:16.623 [debug] <0.201.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 18:23:16.631 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 18:23:16.701 [debug] <0.184.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.205.0>
+2017-07-20 18:23:16.701 [debug] <0.183.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.206.0>
+2017-07-20 18:23:16.711 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.207.0>
+2017-07-20 18:23:16.711 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.208.0>
+2017-07-20 18:23:16.764 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:23:16.769 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:23:17.094 [debug] <0.193.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:23:19.991 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:23:20.352 [debug] <0.219.0> Supervisor inet_gethost_native_sup started undefined at pid <0.220.0>
+2017-07-20 18:23:20.352 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.219.0>
+2017-07-20 18:23:20.996 [info] <0.174.0>@pay_simulator:pay_simulator_start:25 FORMAT ERROR: "~p" [2,7]
+2017-07-20 18:23:20.996 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:29:11.500 [debug] <0.197.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 18:29:11.500 [debug] <0.201.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 18:29:11.500 [debug] <0.199.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 18:29:11.509 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 18:29:11.589 [debug] <0.184.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.205.0>
+2017-07-20 18:29:11.589 [debug] <0.183.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.206.0>
+2017-07-20 18:29:11.589 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.207.0>
+2017-07-20 18:29:11.589 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.208.0>
+2017-07-20 18:29:11.640 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:29:11.649 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:29:11.971 [debug] <0.193.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:29:14.692 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:29:14.695 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:11.563 [debug] <0.197.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-20 18:37:11.563 [debug] <0.201.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-20 18:37:11.563 [debug] <0.199.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-20 18:37:11.601 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-20 18:37:11.646 [debug] <0.184.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.205.0>
+2017-07-20 18:37:11.646 [debug] <0.183.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.206.0>
+2017-07-20 18:37:11.655 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.207.0>
+2017-07-20 18:37:11.655 [debug] <0.185.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0}]) at pid <0.208.0>
+2017-07-20 18:37:11.706 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-20 18:37:11.710 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-20 18:37:12.036 [debug] <0.193.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-20 18:37:15.060 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:15.064 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:15.424 [debug] <0.221.0> Supervisor inet_gethost_native_sup started undefined at pid <0.222.0>
+2017-07-20 18:37:15.424 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.221.0>
+2017-07-20 18:37:16.065 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:17.067 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:18.068 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:19.068 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:20.069 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-20 18:37:21.070 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!

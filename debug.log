@@ -449,3 +449,294 @@
 2017-07-20 18:37:19.068 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
 2017-07-20 18:37:20.069 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
 2017-07-20 18:37:21.070 [info] <0.174.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 11:22:11.629 [debug] <0.923.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-23 11:22:11.637 [debug] <0.925.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-23 11:22:11.712 [debug] <0.906.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.927.0>
+2017-07-23 11:22:11.712 [debug] <0.905.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.928.0>
+2017-07-23 11:22:11.732 [debug] <0.907.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.929.0>
+2017-07-23 11:22:11.732 [debug] <0.907.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.930.0>
+2017-07-23 11:22:11.819 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-23 11:22:11.828 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-23 11:22:12.090 [debug] <0.915.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-23 12:04:52.184 [debug] <0.211.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-23 12:04:52.193 [debug] <0.213.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-23 12:04:52.269 [debug] <0.194.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.215.0>
+2017-07-23 12:04:52.269 [debug] <0.193.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.216.0>
+2017-07-23 12:04:52.282 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.217.0>
+2017-07-23 12:04:52.282 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.218.0>
+2017-07-23 12:04:52.366 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-23 12:04:52.373 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-23 12:04:52.650 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-23 12:07:04.367 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:04.370 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:04.915 [debug] <0.234.0> Supervisor inet_gethost_native_sup started undefined at pid <0.235.0>
+2017-07-23 12:07:04.915 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.234.0>
+2017-07-23 12:07:05.371 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:05.828 [info] <0.228.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120704">>,<<"20170723120704410675">>,"20170723120705351092521","100",200]
+2017-07-23 12:07:05.829 [info] <0.236.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120705">>,<<"20170723120705371691">>,"20170723120705384379309","100",200]
+2017-07-23 12:07:05.829 [info] <0.229.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120704">>,<<"20170723120704410774">>,"20170723120705351083739","100",200]
+2017-07-23 12:07:06.373 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:06.409 [info] <0.241.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120706">>,<<"20170723120706373613">>,"20170723120706382864577","100",200]
+2017-07-23 12:07:07.374 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:07.432 [info] <0.243.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120707">>,<<"20170723120707374616">>,"20170723120707389954528","100",200]
+2017-07-23 12:07:08.375 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:08.420 [info] <0.245.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120708">>,<<"20170723120708375658">>,"20170723120708389806553","100",200]
+2017-07-23 12:07:09.376 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:09.416 [info] <0.247.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120709">>,<<"20170723120709376511">>,"20170723120709387859593","100",200]
+2017-07-23 12:07:10.377 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:10.428 [info] <0.249.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120710">>,<<"20170723120710377842">>,"20170723120710392938175","100",200]
+2017-07-23 12:07:11.378 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:11.426 [info] <0.251.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120711">>,<<"20170723120711378638">>,"20170723120711395334838","100",200]
+2017-07-23 12:07:12.379 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:07:12.413 [info] <0.253.0>@pay_simulator:record_req_log:116 write result= ok
+ write content = [<<"120712">>,<<"20170723120712379708">>,"20170723120712388020506","100",200]
+2017-07-23 12:12:14.915 [debug] <0.207.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-23 12:12:14.919 [debug] <0.209.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-23 12:12:14.920 [debug] <0.211.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-23 12:12:14.935 [debug] <0.213.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-23 12:12:15.021 [debug] <0.194.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.215.0>
+2017-07-23 12:12:15.021 [debug] <0.193.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.216.0>
+2017-07-23 12:12:15.021 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.217.0>
+2017-07-23 12:12:15.022 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.218.0>
+2017-07-23 12:12:15.099 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-23 12:12:15.105 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-23 12:12:15.394 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-23 12:12:37.811 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:37.815 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:38.388 [debug] <0.233.0> Supervisor inet_gethost_native_sup started undefined at pid <0.234.0>
+2017-07-23 12:12:38.388 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.233.0>
+2017-07-23 12:12:38.729 [info] <0.227.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121237">>,<<"20170723121237852072">>,"20170723121238458646242","100",200]
+2017-07-23 12:12:38.729 [info] <0.228.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121237">>,<<"20170723121237852162">>,"20170723121238457590944","100",200]
+2017-07-23 12:12:38.817 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:38.848 [info] <0.237.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121238">>,<<"20170723121238817311">>,"20170723121238825160920","100",200]
+2017-07-23 12:12:39.818 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:39.888 [info] <0.239.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121239">>,<<"20170723121239818683">>,"20170723121239842807434","100",200]
+2017-07-23 12:12:40.819 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:40.876 [info] <0.241.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121240">>,<<"20170723121240819697">>,"20170723121240844040872","100",200]
+2017-07-23 12:12:41.820 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:41.887 [info] <0.243.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121241">>,<<"20170723121241821176">>,"20170723121241847982751","100",200]
+2017-07-23 12:12:42.822 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:42.878 [info] <0.245.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121242">>,<<"20170723121242822477">>,"20170723121242835116014","100",200]
+2017-07-23 12:12:43.824 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:43.877 [info] <0.247.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121243">>,<<"20170723121243824317">>,"20170723121243845487864","100",200]
+2017-07-23 12:12:44.827 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:44.893 [info] <0.249.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121244">>,<<"20170723121244827545">>,"20170723121244852469854","100",200]
+2017-07-23 12:12:45.829 [info] <0.225.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:12:45.878 [info] <0.251.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121245">>,<<"20170723121245829427">>,"20170723121245841700800","100",200]
+2017-07-23 12:14:21.826 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:21.826 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:21.877 [info] <0.257.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121421">>,<<"20170723121421826868">>,"20170723121421842048138","100",200]
+2017-07-23 12:14:21.880 [info] <0.258.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121421">>,<<"20170723121421826969">>,"20170723121421843243316","100",200]
+2017-07-23 12:14:22.828 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:22.880 [info] <0.263.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121422">>,<<"20170723121422828589">>,"20170723121422843903251","100",200]
+2017-07-23 12:14:23.829 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:23.888 [info] <0.265.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121423">>,<<"20170723121423829483">>,"20170723121423858611069","100",200]
+2017-07-23 12:14:24.830 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:24.882 [info] <0.267.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121424">>,<<"20170723121424830323">>,"20170723121424843701154","100",200]
+2017-07-23 12:14:25.832 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:25.897 [info] <0.269.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121425">>,<<"20170723121425832712">>,"20170723121425856913879","100",200]
+2017-07-23 12:14:26.834 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:26.897 [info] <0.271.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121426">>,<<"20170723121426834535">>,"20170723121426864322370","100",200]
+2017-07-23 12:14:27.834 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:27.889 [info] <0.273.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121427">>,<<"20170723121427835083">>,"20170723121427849879771","100",200]
+2017-07-23 12:14:28.836 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:28.882 [info] <0.275.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121428">>,<<"20170723121428836113">>,"20170723121428850691391","100",200]
+2017-07-23 12:14:29.837 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:14:29.894 [info] <0.277.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121429">>,<<"20170723121429837624">>,"20170723121429864510178","100",200]
+2017-07-23 12:16:42.490 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:42.490 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:42.541 [info] <0.281.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121642">>,<<"20170723121642490452">>,"20170723121642505870440","100",200]
+2017-07-23 12:16:42.543 [info] <0.282.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121642">>,<<"20170723121642491404">>,"20170723121642506338198","100",200]
+2017-07-23 12:16:43.492 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:43.549 [info] <0.287.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121643">>,<<"20170723121643493171">>,"20170723121643521129877","100",200]
+2017-07-23 12:16:44.493 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:44.543 [info] <0.289.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121644">>,<<"20170723121644494113">>,"20170723121644512728649","100",200]
+2017-07-23 12:16:45.495 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:45.546 [info] <0.291.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121645">>,<<"20170723121645495322">>,"20170723121645522794443","100",200]
+2017-07-23 12:16:46.496 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:46.547 [info] <0.293.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121646">>,<<"20170723121646496558">>,"20170723121646512736077","100",200]
+2017-07-23 12:16:47.497 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:47.546 [info] <0.295.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121647">>,<<"20170723121647497472">>,"20170723121647516757041","100",200]
+2017-07-23 12:16:48.498 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:48.542 [info] <0.297.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121648">>,<<"20170723121648498360">>,"20170723121648518076809","100",200]
+2017-07-23 12:16:49.498 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:49.532 [info] <0.299.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121649">>,<<"20170723121649499312">>,"20170723121649511487063","100",200]
+2017-07-23 12:16:50.500 [info] <0.254.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:16:50.533 [info] <0.301.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121650">>,<<"20170723121650500285">>,"20170723121650509899226","100",200]
+2017-07-23 12:17:30.195 [debug] <0.209.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-23 12:17:30.191 [debug] <0.207.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-23 12:17:30.196 [debug] <0.211.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-23 12:17:30.219 [debug] <0.213.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-23 12:17:30.297 [debug] <0.194.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.215.0>
+2017-07-23 12:17:30.297 [debug] <0.193.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.216.0>
+2017-07-23 12:17:30.297 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.217.0>
+2017-07-23 12:17:30.297 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.218.0>
+2017-07-23 12:17:30.379 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-23 12:17:30.387 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-23 12:17:30.670 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-23 12:17:33.768 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:33.772 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:34.333 [debug] <0.231.0> Supervisor inet_gethost_native_sup started undefined at pid <0.232.0>
+2017-07-23 12:17:34.334 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.231.0>
+2017-07-23 12:17:34.672 [info] <0.226.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121733">>,<<"20170723121733815187">>,"20170723121734399753843","100",<<"200">>]
+2017-07-23 12:17:34.672 [info] <0.225.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121733">>,<<"20170723121733815088">>,"20170723121734399189054","100",<<"200">>]
+2017-07-23 12:17:34.773 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:34.805 [info] <0.235.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121734">>,<<"20170723121734773805">>,"20170723121734781939438","100",<<"200">>]
+2017-07-23 12:17:35.775 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:35.815 [info] <0.237.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121735">>,<<"20170723121735775238">>,"20170723121735786016087","100",<<"200">>]
+2017-07-23 12:17:36.775 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:36.840 [info] <0.239.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121736">>,<<"20170723121736776194">>,"20170723121736803375919","100",<<"200">>]
+2017-07-23 12:17:37.777 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:37.838 [info] <0.241.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121737">>,<<"20170723121737777201">>,"20170723121737802881088","100",<<"200">>]
+2017-07-23 12:17:38.777 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:38.826 [info] <0.243.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121738">>,<<"20170723121738777998">>,"20170723121738790397008","100",<<"200">>]
+2017-07-23 12:17:39.779 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:39.847 [info] <0.245.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121739">>,<<"20170723121739779330">>,"20170723121739806383833","100",<<"200">>]
+2017-07-23 12:17:40.781 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:40.831 [info] <0.247.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121740">>,<<"20170723121740781238">>,"20170723121740801011198","100",<<"200">>]
+2017-07-23 12:17:41.781 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:17:41.813 [info] <0.249.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"121741">>,<<"20170723121741781735">>,"20170723121741789747622","100",<<"200">>]
+2017-07-23 12:18:43.795 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:43.796 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:44.805 [info] <0.253.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121843">>,<<"20170723121843796897">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:44.805 [info] <0.252.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121843">>,<<"20170723121843796051">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:44.805 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:45.806 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:45.835 [info] <0.256.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121844">>,<<"20170723121844805743">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:46.808 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:46.839 [info] <0.258.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121845">>,<<"20170723121845807147">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:47.829 [info] <0.260.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121846">>,<<"20170723121846808983">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:47.830 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:48.853 [info] <0.262.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121847">>,<<"20170723121847830290">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:48.854 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:49.879 [info] <0.264.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121848">>,<<"20170723121848854343">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:49.879 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:50.896 [info] <0.266.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121849">>,<<"20170723121849879647">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:50.896 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:51.898 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:18:51.904 [info] <0.268.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121850">>,<<"20170723121850896687">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:18:52.923 [info] <0.270.0>@pay_simulator:record_req_log:121 write result= {error,badarg}
+ write content = [<<"121851">>,<<"20170723121851898203">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:10.279 [debug] <0.209.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-23 12:20:10.275 [debug] <0.207.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-23 12:20:10.279 [debug] <0.211.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-23 12:20:10.295 [debug] <0.213.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-23 12:20:10.382 [debug] <0.194.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.215.0>
+2017-07-23 12:20:10.382 [debug] <0.193.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.216.0>
+2017-07-23 12:20:10.382 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.217.0>
+2017-07-23 12:20:10.382 [debug] <0.195.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.218.0>
+2017-07-23 12:20:10.462 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-23 12:20:10.469 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-23 12:20:10.753 [debug] <0.203.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-23 12:20:13.242 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:13.246 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:13.809 [debug] <0.231.0> Supervisor inet_gethost_native_sup started undefined at pid <0.232.0>
+2017-07-23 12:20:13.809 [debug] <0.51.0> Supervisor kernel_safe_sup started inet_gethost_native:start_link() at pid <0.231.0>
+2017-07-23 12:20:15.245 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:15.247 [info] <0.225.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122013">>,<<"20170723122013289222">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:15.248 [info] <0.226.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122013">>,<<"20170723122013289315">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:16.247 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:16.265 [info] <0.233.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122015">>,<<"20170723122015246073">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:17.248 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:17.265 [info] <0.237.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122016">>,<<"20170723122016247298">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:18.258 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:18.275 [info] <0.240.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122017">>,<<"20170723122017248288">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:19.260 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:19.285 [info] <0.243.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122018">>,<<"20170723122018258631">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:20.261 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:20.291 [info] <0.246.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122019">>,<<"20170723122019260540">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:21.294 [info] <0.249.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122020">>,<<"20170723122020262429">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:21.294 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:22.318 [info] <0.253.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122021">>,<<"20170723122021294965">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 12:20:22.318 [info] <0.184.0>@pay_simulator:pay_simulator_start:19 world is beatifull!
+2017-07-23 12:20:23.331 [info] <0.256.0>@pay_simulator:record_req_log:121 write result= ok
+ write content = [<<"122022">>,<<"20170723122022318596">>,undefined,undefined,<<"fail_connect">>]
+2017-07-23 21:47:20.844 [debug] <0.236.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-23 21:47:20.849 [debug] <0.238.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-23 21:47:20.849 [debug] <0.240.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-23 21:47:20.866 [debug] <0.242.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-23 21:47:20.941 [debug] <0.223.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.244.0>
+2017-07-23 21:47:20.941 [debug] <0.222.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.245.0>
+2017-07-23 21:47:20.956 [debug] <0.224.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.246.0>
+2017-07-23 21:47:20.957 [debug] <0.224.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.247.0>
+2017-07-23 21:47:21.049 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-23 21:47:21.056 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-23 21:47:21.321 [debug] <0.232.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event
+2017-07-23 21:49:45.393 [debug] <0.223.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-23 21:49:45.398 [debug] <0.225.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-23 21:49:45.399 [debug] <0.227.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-23 21:49:45.415 [debug] <0.229.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-23 21:49:45.496 [debug] <0.210.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.231.0>
+2017-07-23 21:49:45.497 [debug] <0.209.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.232.0>
+2017-07-23 21:49:45.514 [debug] <0.211.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.233.0>
+2017-07-23 21:49:45.514 [debug] <0.211.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.234.0>
+2017-07-23 21:49:45.607 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-23 21:49:45.617 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-23 21:49:45.870 [debug] <0.219.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event

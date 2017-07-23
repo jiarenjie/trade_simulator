@@ -28,7 +28,7 @@ up_sign(Bin, Key) ->
   S.
 
 public_key() ->
-  PKFile = "src/keys/certificate.pem",
+  PKFile = "src/keys/898319849000028.pem",
   {ok, PemBin} = file:read_file(PKFile),
   [Certificate] = public_key:pem_decode(PemBin),
   {_, DerCert, _} = Certificate,
@@ -37,7 +37,7 @@ public_key() ->
   PublicKey.
 
 very() ->
-  PrivateKey =get_private_key("src/keys/cfca-key-27-pwd-111111.key", "111111"),
+  PrivateKey =get_private_key("src/keys/cfca-key-28-pwd-111111.key", "111111"),
   Signature = up_sign(?SINGSTR, PrivateKey),
   PubulicKey = public_key(),
   public_key:verify(?SINGSTR,sha,Signature,PubulicKey).

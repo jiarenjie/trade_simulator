@@ -58,10 +58,16 @@ send_mcht_req() ->
  % RequestResult = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
   %lager:info("Notify result = ~p~n ,post_vals=~p", [RequestResult, PostVals])
 
-  {ok,{_,_,Body}} = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
-  XmlElt = parse_up_html(Body)
-  %lager:info("Notify result = ~p~n ", [XmlElt])
-  %lager:info("Notify result = ~p~n ", [Body])
+  case httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []) of
+    {ok,{{_,RespCode,_},_,Body}} ->
+      XmlElt = parse_up_html(Body),
+      record_req_log(ReqData,XmlElt,integer_to_binary(RespCode));
+    _-> record_req_log(ReqData,[{<<>>,<<>>}],<<"fail_connect">>)
+  end
+
+  %{ok,{_,_,Body}} = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
+  %XmlElt = parse_up_html(Body)
+
   .
 
 parse_up_html(UpHtml) ->
@@ -91,8 +97,33 @@ get_private_key(KeyFileName, Pwd) ->
       {<<>>, <<>>}
   end.
 
-
 sign_hex(DigestBin, PrivateKey) ->
   SignedBin = public_key:sign(DigestBin, sha, PrivateKey),
   Hex = xfutils:bin_to_hex(SignedBin),
   Hex.
+
+record_req_log(ReqData,RespData,RespCode) ->
+  Result = file:write_file("reqlog.txt"
+    ,[
+      proplists:get_value(tranTime,ReqData)
+      ,<<"|">>
+      ,proplists:get_value(tranId,ReqData)
+      ,<<"|">>
+      ,proplists:get_value("orderId",RespData,<<"null">>)
+      ,<<"|">>
+      ,proplists:get_value("txnAmt",RespData,<<"null">>)
+      ,<<"|">>
+      ,RespCode
+      ,<<"\r\n">>
+    ]
+    ,[append]),
+
+  lager:info("write result= ~p~n write content = ~p",[Result,[
+    proplists:get_value(tranTime,ReqData)
+    ,proplists:get_value(tranId,ReqData)
+    ,proplists:get_value("orderId",RespData)
+    ,proplists:get_value("txnAmt",RespData)
+    ,RespCode
+  ]]).
+
+

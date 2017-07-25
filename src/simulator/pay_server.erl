@@ -24,7 +24,7 @@
 
 -define(SERVER, ?MODULE).
 
--record(state, {}).
+-record(state, {timespersecond,totaltimes}).
 
 %%%===================================================================
 %%% API
@@ -36,9 +36,10 @@
 %%
 %% @end
 %%--------------------------------------------------------------------
--spec(start_link() ->
-  {ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
+-spec start_link( ) ->
+  {ok, Pid :: pid()} | ignore | {error, Reason :: term()}.
 start_link() ->
+  lager:info("~npay_server was invoked!~n",[]),
   gen_server:start_link( ?MODULE, [], []).
 
 %%%===================================================================
@@ -108,7 +109,7 @@ handle_cast(_Request, State) ->
   {noreply, NewState :: #state{}} |
   {noreply, NewState :: #state{}, timeout() | hibernate} |
   {stop, Reason :: term(), NewState :: #state{}}).
-handle_info(timeout, State) ->
+handle_info(timeout,State) ->
   pay_simulator:send_mcht_req(),
   {stop,normal, State}.
 

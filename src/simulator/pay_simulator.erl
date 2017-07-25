@@ -14,10 +14,10 @@
 -export([send_mcht_req/0,pay_simulator_start/2]).
 
 
-pay_simulator_start(TimesPerSecond,TotalTises) ->
+pay_simulator_start(TimesPerSecond,TotalTimes) ->
   F = fun(_X,[A,Acc])->
     lager:info("world is beatifull!"),
-    pay_server:start_link(),
+    pay_sup:start_child(),
     case A-1 =:= 0 of
       false ->[A-1,Acc-1];
       true ->
@@ -25,10 +25,7 @@ pay_simulator_start(TimesPerSecond,TotalTises) ->
         [A,Acc-1]
     end
     end,
-
-  lists:foldl( F,[TimesPerSecond,TotalTises],lists:seq(1,TotalTises)).
-
-
+  lists:foldl( F,[TimesPerSecond,TotalTimes],lists:seq(1,TotalTimes)).
 
 sign_feilds() ->
   [merchId,tranDate,tranId,tranTime,tranAmt,orderDesc,trustBackUrl,trustFrontUrl].

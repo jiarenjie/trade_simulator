@@ -14,13 +14,13 @@
 -export([init/1]).
 
 -define(SERVER, ?MODULE).
+-define(MPAYSUP, pay_sup).
 
 %%====================================================================
 %% API functions
 %%====================================================================
 
 start_link() ->
-    io:format("I am a supervisor~n"),
     supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 
 %%====================================================================
@@ -29,7 +29,10 @@ start_link() ->
 
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
-    {ok, { {one_for_all, 0, 1}, []} }.
+    MPAYSUP = {?MPAYSUP,
+        {?MPAYSUP, start_link, []},
+        permanent, 2000, supervisor, [?MPAYSUP]},
+    {ok, { {one_for_one, 2, 60}, [MPAYSUP]} }.
 
 %%====================================================================
 %% Internal functions

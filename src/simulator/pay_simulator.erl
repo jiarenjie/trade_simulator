@@ -9,6 +9,8 @@
 -module(pay_simulator).
 -author("pingjianwei").
 -include_lib("xmerl/include/xmerl.hrl").
+%% 为什么不加../会变红呢？
+-include("../include/store.hrl").
 
 %% API
 -export([send_mcht_req/0,pay_simulator_start/2]).
@@ -58,13 +60,13 @@ send_mcht_req() ->
   case httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []) of
     {ok,{{_,RespCode,_},_,Body}} ->
       XmlElt = parse_up_html(Body),
-      record_req_log(ReqData,XmlElt,integer_to_binary(RespCode));
-    _-> record_req_log(ReqData,[{<<>>,<<>>}],<<"fail_connect">>)
+%%      record_req_log(ReqData,XmlElt,integer_to_binary(RespCode));
+     save(ReqData,XmlElt,RespCode);
+    _-> save(ReqData,[{<<>>,<<>>}],<<"fail_connect">>)
   end
 
   %{ok,{_,_,Body}} = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
   %XmlElt = parse_up_html(Body)
-
   .
 
 parse_up_html(UpHtml) ->
@@ -98,6 +100,18 @@ sign_hex(DigestBin, PrivateKey) ->
   SignedBin = public_key:sign(DigestBin, sha, PrivateKey),
   Hex = xfutils:bin_to_hex(SignedBin),
   Hex.
+
+
+save(ReqData,RespData,RespCode) ->
+  TxnLog = #txn_log{
+    mcht_txn_seq = proplists:get_value(tranId,ReqData)
+    , mcht_txn_date = proplists:get_value(tranDate,ReqData)
+    , mcht_txn_time = proplists:get_value(tranTime,ReqData)
+    , up_orderId = proplists:get_value("orderId",RespData,<<"null">>)
+    , up_txnAmt = proplists:get_value("txnAmt",RespData,<<"null">>)
+    , up_respCode = RespCode
+  },
+  behaviour_repo:save(TxnLog).
 
 record_req_log(ReqData,RespData,RespCode) ->
   Result = file:write_file("reqlog.txt"

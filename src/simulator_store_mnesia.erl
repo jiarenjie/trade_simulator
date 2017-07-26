@@ -7,7 +7,6 @@
   , init_table/0
   , start/0
   , db_init/0
-  , db_init/1
 ]).
 
 
@@ -36,54 +35,19 @@ start() ->
 %% Internal Functions
 db_init() ->
   [
-    {db_init(T), index_init(T), data_init(T)}
-    || T <- [ums_reconcile_result, mcht_txn_acc]
+    {db_init(T), index_init(T)}
+    || T <- [txn_log]
 %%  mcht_txn_log, mchants,up_txn_log,
   ].
 
-db_init(mcht_txn_log) ->
+db_init(txn_log) ->
 
   {atomic, ok} = mnesia:create_table(
-    mcht_txn_log,
+    txn_log,
     [   %%{index,[order_id]}
 
-      {attributes, record_info(fields, mcht_txn_log)}
+      {attributes, record_info(fields, txn_log)}
       %, {index, [mcht_index_key]}
-      , {disc_copies, [node()]}
-    ]);
-db_init(up_txn_log) ->
-  {atomic, ok} = mnesia:create_table(
-    up_txn_log,
-    [   %%{index,[order_id]}
-
-      {attributes, record_info(fields, up_txn_log)}
-      %, {index, [mcht_index_key]}
-      , {disc_copies, [node()]}
-    ]);
-db_init(mchants) ->
-  {atomic, ok} = mnesia:create_table(
-    mchants,
-    [   %%{index,[order_id]}
-
-      {attributes, record_info(fields, mchants)}
-      %, {index, [mcht_index_key]}
-      , {disc_copies, [node()]}
-    ]);
-db_init(ums_reconcile_result) ->
-  {atomic, ok} = mnesia:create_table(
-    ums_reconcile_result,
-    [   %%{index,[order_id]}
-
-      {attributes, record_info(fields, ums_reconcile_result)}
-      %, {index, [mcht_index_key]}
-      , {disc_copies, [node()]}
-    ]);
-
-db_init(mcht_txn_acc) ->
-  {atomic, ok} = mnesia:create_table(
-    mcht_txn_acc,
-    [
-      {attributes, record_info(fields, mcht_txn_acc)}
       , {disc_copies, [node()]}
     ]).
 

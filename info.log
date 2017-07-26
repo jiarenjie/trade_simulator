@@ -1773,3 +1773,7 @@ pay_server was invoked!
 pay_server was invoked!
 2017-07-25 16:49:26.931 [info] <0.251.0>@pay_simulator:record_req_log:118 write result= ok
  write content = [<<"164926">>,<<"20170725164926908319">>,"20170725164926920860449","100",<<"200">>]
+2017-07-26 09:56:32.436 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-26 09:56:32.444 [info] <0.245.0>@pay_sup:start_link:36 
+pay_sup was invoked!
+2017-07-26 09:56:32.445 [info] <0.31.0> Application trade_simulator started on node nonode@nohost

@@ -2508,3 +2508,17 @@ pay_server was invoked!
 pay_server was invoked!
 2017-07-25 16:49:26.931 [info] <0.251.0>@pay_simulator:record_req_log:118 write result= ok
  write content = [<<"164926">>,<<"20170725164926908319">>,"20170725164926920860449","100",<<"200">>]
+2017-07-26 09:56:32.242 [debug] <0.229.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"error.log"} into lager_event
+2017-07-26 09:56:32.242 [debug] <0.231.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"info.log"} into lager_event
+2017-07-26 09:56:32.243 [debug] <0.233.0>@lager_handler_watcher:119 Lager installed handler {lager_file_backend,"debug.log"} into lager_event
+2017-07-26 09:56:32.282 [debug] <0.235.0>@lager_handler_watcher:119 Lager installed handler error_logger_lager_h into error_logger
+2017-07-26 09:56:32.334 [debug] <0.216.0> Supervisor gr_param_sup started gr_param:start_link(gr_lager_default_tracer_params) at pid <0.237.0>
+2017-07-26 09:56:32.334 [debug] <0.215.0> Supervisor gr_counter_sup started gr_counter:start_link(gr_lager_default_tracer_counters) at pid <0.238.0>
+2017-07-26 09:56:32.349 [debug] <0.217.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_params_mgr, gr_lager_default_tracer_params, []) at pid <0.239.0>
+2017-07-26 09:56:32.350 [debug] <0.217.0> Supervisor gr_manager_sup started gr_manager:start_link(gr_lager_default_tracer_counters_mgr, gr_lager_default_tracer_counters, [{input,0},{filter,0},{output,0},{job_input,0},{job_run,0},{job_time,0},{job_error,0}]) at pid <0.240.0>
+2017-07-26 09:56:32.436 [info] <0.31.0> Application lager started on node nonode@nohost
+2017-07-26 09:56:32.444 [info] <0.245.0>@pay_sup:start_link:36 
+pay_sup was invoked!
+2017-07-26 09:56:32.445 [debug] <0.245.0> Supervisor trade_simulator_sup started pay_sup:start_link() at pid <0.246.0>
+2017-07-26 09:56:32.445 [info] <0.31.0> Application trade_simulator started on node nonode@nohost
+2017-07-26 09:56:32.717 [debug] <0.225.0>@lager_handler_watcher:119 Lager installed handler lager_backend_throttle into lager_event

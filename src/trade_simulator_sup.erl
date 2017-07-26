@@ -15,6 +15,7 @@
 
 -define(SERVER, ?MODULE).
 -define(MPAYSUP, pay_sup).
+-define(MSIMULATORSTORE, simulator_store).
 
 %%====================================================================
 %% API functions
@@ -32,7 +33,10 @@ init([]) ->
     MPAYSUP = {?MPAYSUP,
         {?MPAYSUP, start_link, []},
         permanent, 2000, supervisor, [?MPAYSUP]},
-    {ok, { {one_for_one, 2, 60}, [MPAYSUP]} }.
+    MSIMULATORSTORE = {?MSIMULATORSTORE,
+        {?MSIMULATORSTORE, start_link, []},
+        permanent, 2000, supervisor, [?MSIMULATORSTORE]},
+    {ok, { {one_for_one, 2, 60}, [MPAYSUP,MSIMULATORSTORE]} }.
 
 %%====================================================================
 %% Internal functions

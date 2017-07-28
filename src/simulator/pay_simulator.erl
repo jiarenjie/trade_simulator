@@ -63,7 +63,8 @@ send_mcht_req() ->
 %%      record_req_log(ReqData,XmlElt,integer_to_binary(RespCode));
      save(ReqData,XmlElt,RespCode);
     _-> save(ReqData,[{<<>>,<<>>}],<<"fail_connect">>)
-  end
+  end,
+  up_sup:start_child(proplists:get_value(tranId,ReqData))
 
   %{ok,{_,_,Body}} = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
   %XmlElt = parse_up_html(Body)
@@ -112,6 +113,7 @@ save(ReqData,RespData,RespCode) ->
     , up_respCode = RespCode
   },
   behaviour_repo:save(TxnLog).
+
 
 record_req_log(ReqData,RespData,RespCode) ->
   Result = file:write_file("reqlog.txt"

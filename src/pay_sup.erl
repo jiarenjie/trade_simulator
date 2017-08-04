@@ -33,7 +33,6 @@
 -spec(start_link() ->
   {ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
 start_link() ->
-  lager:info("~npay_sup was invoked!~n",[]),
   supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 
 start_child() ->

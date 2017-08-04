@@ -110,6 +110,7 @@ save(ReqData,RespData,RespCode) ->
     , mcht_txn_time = proplists:get_value(tranTime,ReqData)
     , up_orderId = proplists:get_value("orderId",RespData,<<"null">>)
     , up_txnAmt = proplists:get_value("txnAmt",RespData,<<"null">>)
+    , txn_statue = waiting
     , up_respCode = RespCode
   },
   behaviour_repo:save(TxnLog).

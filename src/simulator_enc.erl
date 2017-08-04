@@ -4,19 +4,54 @@
 %%% @doc
 %%%
 %%% @end
-%%% Created : 20. 七月 2017 15:00
+%%% Created : 04. 八月 2017 17:02
 %%%-------------------------------------------------------------------
--module(up_very).
--author("pingjianwei").
+-module(simulator_enc).
 -include_lib("eunit/include/eunit.hrl").
 -include_lib("public_key/include/public_key.hrl").
--define(SINGSTR, <<"8c10a1f68d830818fd8a2c611a6eb7a2e082fc13">>).
+-author("pingjianwei").
 
 %% API
 -export([]).
--compile(export_all).
+
+
 
 get_private_key(KeyFileName, Pwd) ->
+  try
+    {ok, PemBin} = file:read_file(KeyFileName),
+    [RSAEntry | _Rest] = public_key:pem_decode(PemBin),
+    RsaKeyInfo = public_key:pem_entry_decode(RSAEntry, Pwd),
+    {RsaKeyInfo, PemBin}
+  catch
+    error :X ->
+      lager:error("read private key file ~p error! Msg = ~p", [KeyFileName, X]),
+      {<<>>, <<>>}
+  end.
+
+get_public_key(KeyFileName) ->
+  try
+    {ok, PemBin} = file:read_file(KeyFileName),
+    [Certificate] = public_key:pem_decode(PemBin),
+    PublicKey = public_key:pem_entry_decode(Certificate),
+    {PublicKey, PemBin}
+  catch
+    error:X ->
+      lager:error("read public key file ~p error! Msg = ~p", [KeyFileName, X]),
+      {<<>>, <<>>}
+  end.
+
+
+sign_hex(DigestBin, PrivateKey) ->
+  SignedBin = public_key:sign(DigestBin, sha, PrivateKey),
+  Hex = xfutils:bin_to_hex(SignedBin),
+  Hex.
+
+
+%%---------------------------------------------------------------------------------
+
+
+
+get_up_private_key(KeyFileName, Pwd) ->
   {ok, PemBin} = file:read_file(KeyFileName),
   [RSAEntry | _Rest] = public_key:pem_decode(PemBin),
   RsaKeyInfo = public_key:pem_entry_decode(RSAEntry, Pwd),
@@ -27,9 +62,8 @@ up_sign(Bin, Key) ->
   S = public_key:sign(Bin, 'sha', Key),
   S.
 
-public_key() ->
-  PKFile = "src/keys/acp.pem",
-  {ok, PemBin} = file:read_file(PKFile),
+get_up_public_key(PKPath) ->
+  {ok, PemBin} = file:read_file(PKPath),
   [Certificate] = public_key:pem_decode(PemBin),
   {_, DerCert, _} = Certificate,
   Decoded = public_key:pkix_decode_cert(DerCert, otp),

@@ -17,6 +17,7 @@
   , mcht_txn_time
   , up_orderId
   , up_txnAmt
+  , txn_statue
   , up_respCode
 }).
 

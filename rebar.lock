@@ -1,10 +1,13 @@
 {"1.1.0",
-[{<<"goldrush">>,{pkg,<<"goldrush">>,<<"0.1.9">>},1},
+[{<<"cowboy">>,{pkg,<<"cowboy">>,<<"1.0.4">>},0},
+ {<<"cowlib">>,{pkg,<<"cowlib">>,<<"1.0.2">>},1},
+ {<<"goldrush">>,{pkg,<<"goldrush">>,<<"0.1.9">>},1},
  {<<"lager">>,{pkg,<<"lager">>,<<"3.4.2">>},0},
  {<<"mochiweb">>,
   {git,"https://github.com/pingjianwei/mochiweb.git",
        {ref,"aacb8f2e2fd98a729bd4f54e028c6b742bfb9dcb"}},
   0},
+ {<<"ranch">>,{pkg,<<"ranch">>,<<"1.4.0">>},1},
  {<<"trane">>,
   {git,"https://github.com/pingjianwei/trane",
        {ref,"87ad5083e54fc3ebbb4ad75eb1e71c8da5b5dec0"}},
@@ -15,6 +18,9 @@
   0}]}.
 [
 {pkg_hash,[
+ {<<"cowboy">>, <<"A324A8DF9F2316C833A470D918AAF73AE894278B8AA6226CE7A9BF699388F878">>},
+ {<<"cowlib">>, <<"9D769A1D062C9C3AC753096F868CA121E2730B9A377DE23DEC0F7E08B1DF84EE">>},
  {<<"goldrush">>, <<"F06E5D5F1277DA5C413E84D5A2924174182FB108DABB39D5EC548B27424CD106">>},
- {<<"lager">>, <<"150B9A17B23AE6D3265CC10DC360747621CF217B7A22B8CDDF03B2909DBF7AA5">>}]}
+ {<<"lager">>, <<"150B9A17B23AE6D3265CC10DC360747621CF217B7A22B8CDDF03B2909DBF7AA5">>},
+ {<<"ranch">>, <<"10272F95DA79340FA7E8774BA7930B901713D272905D0012B06CA6D994F8826B">>}]}
 ].

@@ -21,6 +21,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="lager" />
+    <orderEntry type="module" module-name="cowboy" />
     <orderEntry type="module" module-name="xfutils" />
     <orderEntry type="module" module-name="mochiweb" />
   </component>

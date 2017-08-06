@@ -39,7 +39,6 @@
 -spec start_link( ) ->
   {ok, Pid :: pid()} | ignore | {error, Reason :: term()}.
 start_link() ->
-  lager:info("~npay_server was invoked!~n",[]),
   gen_server:start_link( ?MODULE, [], []).
 
 %%%===================================================================

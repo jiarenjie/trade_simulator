@@ -15,6 +15,8 @@
   mcht_txn_seq
   , mcht_txn_date
   , mcht_txn_time
+  , up_merId
+  , up_txnTime
   , up_orderId
   , up_txnAmt
   , txn_statue

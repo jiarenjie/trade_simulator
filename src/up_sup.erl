@@ -60,12 +60,12 @@ start_child(MchtId) ->
   {error, Reason :: term()}).
 init([]) ->
   RestartStrategy = simple_one_for_one,
-  MaxRestarts = 1000,
-  MaxSecondsBetweenRestarts = 3600,
+  MaxRestarts = 5,
+  MaxSecondsBetweenRestarts = 20,
 
   SupFlags = {RestartStrategy, MaxRestarts, MaxSecondsBetweenRestarts},
 
-  Restart = permanent,
+  Restart = temporary,
   Shutdown = 2000,
   Type = worker,
 

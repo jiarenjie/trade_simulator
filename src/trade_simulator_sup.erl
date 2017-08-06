@@ -42,12 +42,12 @@ init([]) ->
         {?MUPSUP, start_link, []},
         permanent, 2000, supervisor, [?MUPSUP]},
 
-%%    SIMULATORWEB = {?MSIMULATORWEB,
-%%        {?MSIMULATORWEB, start_link, []},
-%%        permanent, 2000, supervisor, [?MSIMULATORWEB]},
+    SIMULATORWEB = {?MSIMULATORWEB,
+        {?MSIMULATORWEB, start_link, []},
+        permanent, 2000, supervisor, [?MSIMULATORWEB]},
 
 
-    {ok, { {one_for_one, 2, 60}, [MPAYSUP,MSIMULATORSTORE,UPSUP]} }.
+    {ok, { {one_for_one, 2, 60}, [MPAYSUP,MSIMULATORSTORE,UPSUP,SIMULATORWEB]} }.
 
 %%====================================================================
 %% Internal functions

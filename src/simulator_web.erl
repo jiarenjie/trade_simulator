@@ -148,9 +148,7 @@ handle_info(_Info, State) ->
 -spec(terminate(Reason :: (normal | shutdown | {shutdown, term()} | term()),
     State :: #state{}) -> term()).
 terminate(_Reason, _State) ->
-
   %inets:stop(),
-
   io:format("gws_web terminated.~n", []),
   ok = application:stop(cowboy),
   ok.
@@ -182,18 +180,17 @@ routes() ->
 
       % txn url
 %%      , {"/pg/pay", wh_txn_mcht_pay, []}
-      {"/pg/pay", wh_txn_mcht_pay_pt, []}
+%%      {"/pg/pay", wh_txn_mcht_pay_pt, []}
 %%      , {"/pg/pay_succ", wh_txn_up_pay_front, []}
-      , {"/pg/pay_succ", wh_txn_up_pay_front_pt, []}
+%%      , {"/pg/pay_succ", wh_txn_up_pay_front_pt, []}
 %%      , {"/pg/pay_succ_info", wh_up_back_pay_succ, []}
-      , {"/pg/pay_succ_info", wh_txn_up_pay_back_pt, []}
+        {"/pg/pay_succ_info", wh_txn_pay_back_pt, []}
 %%      , {"/pg/query", wh_txn_mcht_query, []}
-      , {"/pg/query", wh_txn_mcht_query_pt, []}
+%%      , {"/pg/query", wh_txn_mcht_query_pt, []}
 %%      , {"/pg/refund", wh_txn_mcht_refund, []}
-      , {"/pg/refund", wh_txn_mcht_refund_pt, []}
+%%      , {"/pg/refund", wh_txn_mcht_refund_pt, []}
 
     ]}
-
   ].
 
 

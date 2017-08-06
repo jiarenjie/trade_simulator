@@ -40,16 +40,16 @@ init_mcht_req()->
     ,{tranTime,erlang:list_to_binary(lists:sublist(xfutils:now(txn),9,14))}
     ,{tranAmt,<<"100">>}
     ,{orderDesc,<<"{pI=test,aI=03429500040006212}">>}
-    ,{trustBackUrl,<<"http://test.trust-one.com/pg/simu_mcht_back_succ_info">>}
-    ,{trustFrontUrl,<<"http://test.trust-one.com/pg/simu_mcht_front_succ">>}
+    ,{trustBackUrl,<<"http://localhost:9999/pg/pay_succ_info">>}
+    ,{trustFrontUrl,<<"http://localhost:9999/pg/pay_mcht_front">>}
   ].
 
 
 send_mcht_req() ->
   ReqData =init_mcht_req(),
   SignStr=list_to_binary([proplists:get_value(X,ReqData)|| X<-sign_feilds()]),
-  {PrivateKey,_} = get_private_key("src/keys/private_key.pem", ""),
-  Signature = sign_hex(SignStr, PrivateKey),
+  {PrivateKey,_} = simulator_enc:get_private_key("src/keys/private_key.pem", ""),
+  Signature = simulator_enc:sign_hex(SignStr, PrivateKey),
   PostVals = lists:flatten([ReqData,{signature,Signature}]),
   PostString = xfutils:post_vals_to_string(PostVals),
   %lager:info("PostString=~p",[PostString]),
@@ -61,7 +61,8 @@ send_mcht_req() ->
     {ok,{{_,RespCode,_},_,Body}} ->
       XmlElt = parse_up_html(Body),
 %%      record_req_log(ReqData,XmlElt,integer_to_binary(RespCode));
-     save(ReqData,XmlElt,RespCode);
+     save(ReqData,XmlElt,RespCode),
+     record_req_log(ReqData,XmlElt,RespCode);
     _-> save(ReqData,[{<<>>,<<>>}],<<"fail_connect">>)
   end,
   up_sup:start_child(proplists:get_value(tranId,ReqData))
@@ -77,30 +78,15 @@ parse_up_html(UpHtml) ->
   {XmlElt, _} = xmerl_scan:string( binary_to_list(UpHtmlBin)),
   Items = xmerl_xpath:string("/html/body/form/input", XmlElt),
   G = fun(Item) ->
-    [#xmlAttribute{value = Name}] = xmerl_xpath:string("/input/@name", Item),
-    [#xmlAttribute{value = Value}] = xmerl_xpath:string("/input/@value", Item),
-    {Name,Value}
+    %lager:debug("Items = ~p~n",[Item]),
+    case xmerl_xpath:string("/input/@name", Item) of
+      [#xmlAttribute{value = Name}] ->
+        [#xmlAttribute{value = Value}] = xmerl_xpath:string("/input/@value", Item),
+        {Name,Value};
+      _ -> []
+    end
     end,
   [G(X)|| X<-Items].
-
-
-get_private_key(KeyFileName, Pwd) ->
-  try
-    {ok, PemBin} = file:read_file(KeyFileName),
-    [RSAEntry | _Rest] = public_key:pem_decode(PemBin),
-    RsaKeyInfo = public_key:pem_entry_decode(RSAEntry, Pwd),
-    {RsaKeyInfo, PemBin}
-
-  catch
-    error :X ->
-      lager:error("read private key file ~p error! Msg = ~p", [KeyFileName, X]),
-      {<<>>, <<>>}
-  end.
-
-sign_hex(DigestBin, PrivateKey) ->
-  SignedBin = public_key:sign(DigestBin, sha, PrivateKey),
-  Hex = xfutils:bin_to_hex(SignedBin),
-  Hex.
 
 
 save(ReqData,RespData,RespCode) ->
@@ -108,6 +94,8 @@ save(ReqData,RespData,RespCode) ->
     mcht_txn_seq = proplists:get_value(tranId,ReqData)
     , mcht_txn_date = proplists:get_value(tranDate,ReqData)
     , mcht_txn_time = proplists:get_value(tranTime,ReqData)
+    , up_merId = proplists:get_value("merId",RespData,<<"null">>)
+    , up_txnTime = proplists:get_value("txnTime",RespData,<<"null">>)
     , up_orderId = proplists:get_value("orderId",RespData,<<"null">>)
     , up_txnAmt = proplists:get_value("txnAmt",RespData,<<"null">>)
     , txn_statue = waiting
@@ -123,21 +111,26 @@ record_req_log(ReqData,RespData,RespCode) ->
       ,<<"|">>
       ,proplists:get_value(tranId,ReqData)
       ,<<"|">>
+      ,proplists:get_value("merId",RespData,<<"null">>)
+      ,<<"|">>
+      , proplists:get_value("txnTime",RespData,<<"null">>)
+      ,<<"|">>
       ,proplists:get_value("orderId",RespData,<<"null">>)
       ,<<"|">>
       ,proplists:get_value("txnAmt",RespData,<<"null">>)
       ,<<"|">>
-      ,RespCode
+      ,integer_to_binary(RespCode)
       ,<<"\r\n">>
     ]
-    ,[append]),
+    ,[append])
 
-  lager:info("write result= ~p~n write content = ~p",[Result,[
-    proplists:get_value(tranTime,ReqData)
-    ,proplists:get_value(tranId,ReqData)
-    ,proplists:get_value("orderId",RespData)
-    ,proplists:get_value("txnAmt",RespData)
-    ,RespCode
-  ]]).
+%%  lager:info("write result= ~p~n write content = ~p",[Result,[
+%%    proplists:get_value(tranTime,ReqData)
+%%    ,proplists:get_value(tranId,ReqData)
+%%    ,proplists:get_value("orderId",RespData)
+%%    ,proplists:get_value("txnAmt",RespData)
+%%    ,RespCode
+%%  ]])
+   .
 
 

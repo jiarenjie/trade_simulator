@@ -111,10 +111,10 @@ handle_cast(_Request, State) ->
   {stop, Reason :: term(), NewState :: #state{}}).
 
 handle_info(timeout, #state{mchtid = MchtId} = State) ->
-  OrderId = get_orderId(MchtId),
+  OrderId = get_orderId_info(MchtId),
   lager:debug("OrderId = ~p~n",[OrderId]),
   send_back_notice(OrderId),
-  {noreply, State};
+  {stop, normal,State};
 handle_info(_Info, State) ->
   {noreply, State}.
 
@@ -188,8 +188,8 @@ send_back_notice(Modle) when is_tuple(Modle)->
       lager:debug("UP_RESPONSE_BODY = ~p~n",[Body])
   end.
 
-get_orderId(MchtId) ->
+get_orderId_info(MchtId) ->
   [{txn_log,_,_,_,UpMerID,UpTxnTime,UpOderId,_,_,_}] = mnesia:dirty_read(txn_log,MchtId),
-  {list_to_binary(UpMerID),list_to_binary(UpTxnTime),list_to_binary(UpOderId)}.
+  {UpMerID,UpTxnTime,UpOderId}.
 
 

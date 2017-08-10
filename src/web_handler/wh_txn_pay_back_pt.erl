@@ -27,9 +27,14 @@ handle(Req, State) ->
   {ok, PostVals, Req2} = xfutils:post_get_qs(Req),
   lager:debug("in /pay_succ_front, PostVals = ~p", [PostVals]),
 
-  {StatusCode, _ReplyBody} = behaviour_txn_process:process(ph_process_resp_pay, PostVals),
+  {StatusCode, _ReplyBody} = process_back_notice(PostVals),
 
   {ok, Req3} = cowboy_req:reply(StatusCode, [{<<"content-type">>, <<"text/html">>}], [], Req2),
 
   {ok, Req3, State}.
+
+process_back_notice(PostVals) ->
+  behaviour_repo:update_pk(repo_txn_log_pt,proplists:get_value(<<"tranId">>,PostVals),[{txn_statue,success}]),
+  {200,PostVals}.
+
 

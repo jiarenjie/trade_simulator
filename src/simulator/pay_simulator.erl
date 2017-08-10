@@ -9,25 +9,39 @@
 -module(pay_simulator).
 -author("pingjianwei").
 -include_lib("xmerl/include/xmerl.hrl").
-%% 为什么不加../会变红呢？
 -include("../include/store.hrl").
+-include_lib("stdlib/include/qlc.hrl").
 
 %% API
--export([send_mcht_req/0,pay_simulator_start/2]).
+-export([send_mcht_req/0,start/2,start/3]).
+-compile(export_all).
 
 
-pay_simulator_start(TimesPerSecond,TotalTimes) ->
-  F = fun(_X,[A,Acc])->
-    lager:info("world is beatifull!"),
-    pay_sup:start_child(),
-    case A-1 =:= 0 of
-      false ->[A-1,Acc-1];
-      true ->
-        timer:sleep(1000),
-        [A,Acc-1]
-    end
-    end,
-  lists:foldl( F,[TimesPerSecond,TotalTimes],lists:seq(1,TotalTimes)).
+%%simulator_start(TimesPerSecond,TotalTimes) ->
+%%  F = fun(_X,[A,Acc])->
+%%    pay_sup:start_child(),
+%%    case A-1 =:= 0 of
+%%      false ->[A-1,Acc-1];
+%%      true ->
+%%        timer:sleep(1000),
+%%        [A,Acc-1]
+%%    end
+%%    end,
+%%  lists:foldl( F,[TimesPerSecond,TotalTimes],lists:seq(1,TotalTimes)).
+
+start(TimesPerSecond,TotalTimes)->
+  start(TimesPerSecond,TotalTimes,TimesPerSecond).
+
+start(_,0,_) ->
+  ok;
+start(0,TotalTimes,TimesPerSecond) ->
+  timer:sleep(1000),
+  start(TimesPerSecond,TotalTimes,TimesPerSecond);
+start(TimesPerSecond,TotalTimes,TimesPerSecond2) ->
+  pay_sup:start_child(),
+  start(TimesPerSecond - 1 ,TotalTimes - 1 ,TimesPerSecond2).
+
+
 
 sign_feilds() ->
   [merchId,tranDate,tranId,tranTime,tranAmt,orderDesc,trustBackUrl,trustFrontUrl].
@@ -59,10 +73,10 @@ send_mcht_req() ->
 
   case httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []) of
     {ok,{{_,RespCode,_},_,Body}} ->
-      XmlElt = parse_up_html(Body),
+      UpValueLists = parse_up_html(Body),
 %%      record_req_log(ReqData,XmlElt,integer_to_binary(RespCode));
-     save(ReqData,XmlElt,RespCode),
-     record_req_log(ReqData,XmlElt,RespCode);
+     save(ReqData,UpValueLists,RespCode),
+     record_req_log(ReqData,UpValueLists,RespCode);
     _-> save(ReqData,[{<<>>,<<>>}],<<"fail_connect">>)
   end,
   up_sup:start_child(proplists:get_value(tranId,ReqData))
@@ -72,9 +86,26 @@ send_mcht_req() ->
   .
 
 parse_up_html(UpHtml) ->
-  UpHtmlBin = binary:replace(list_to_binary(UpHtml),
+  {<<"html">>,[],[_, {<<"body">>,[],[ {<<"form">>,_,FormBody } ] } ] }= mochiweb_html:parse(UpHtml),
+  lager:info("Body = ~p",[ FormBody]),
+  G = fun(X,Acc) ->
+    {_,PropList,_} =X,
+    case proplists:get_value(<<"name">>,PropList) of
+      undefined -> Acc;
+      Key ->[{Key,proplists:get_value(<<"value">>,PropList)}|Acc]
+    end
+    end,
+  lists:foldl(G,[],FormBody).
+
+
+parse_up_html_old(UpHtml) ->
+  UpHtml1 = lists:delete(lists:nth((length(UpHtml)-1),UpHtml),UpHtml),
+  lager:info("UpHtml1 = ~p",[list_to_binary(UpHtml1)]),
+  lager:info("~p",[lists:nth((length(UpHtml)-1),UpHtml)]),
+  UpHtmlBin = binary:replace(list_to_binary(UpHtml1),
      [<<"\n<meta http-equiv=\"content-type\" content=\"text/html;charset=Utf-8\">">>
       ,<<"\n<meta charset=\"UTF-8\">">>],<<>>),
+
   {XmlElt, _} = xmerl_scan:string( binary_to_list(UpHtmlBin)),
   Items = xmerl_xpath:string("/html/body/form/input", XmlElt),
   G = fun(Item) ->
@@ -94,10 +125,10 @@ save(ReqData,RespData,RespCode) ->
     mcht_txn_seq = proplists:get_value(tranId,ReqData)
     , mcht_txn_date = proplists:get_value(tranDate,ReqData)
     , mcht_txn_time = proplists:get_value(tranTime,ReqData)
-    , up_merId = proplists:get_value("merId",RespData,<<"null">>)
-    , up_txnTime = proplists:get_value("txnTime",RespData,<<"null">>)
-    , up_orderId = proplists:get_value("orderId",RespData,<<"null">>)
-    , up_txnAmt = proplists:get_value("txnAmt",RespData,<<"null">>)
+    , up_merId = proplists:get_value(<<"merId">>,RespData,<<"null">>)
+    , up_txnTime = proplists:get_value(<<"txnTime">>,RespData,<<"null">>)
+    , up_orderId = proplists:get_value(<<"orderId">>,RespData,<<"null">>)
+    , up_txnAmt = proplists:get_value(<<"txnAmt">>,RespData,<<"null">>)
     , txn_statue = waiting
     , up_respCode = RespCode
   },
@@ -122,15 +153,24 @@ record_req_log(ReqData,RespData,RespCode) ->
       ,integer_to_binary(RespCode)
       ,<<"\r\n">>
     ]
-    ,[append])
+    ,[append]) .
 
-%%  lager:info("write result= ~p~n write content = ~p",[Result,[
-%%    proplists:get_value(tranTime,ReqData)
-%%    ,proplists:get_value(tranId,ReqData)
-%%    ,proplists:get_value("orderId",RespData)
-%%    ,proplists:get_value("txnAmt",RespData)
-%%    ,RespCode
-%%  ]])
-   .
+ count_results() ->
+   QH = qlc:q([X || X <- mnesia:table(txn_log)]),
+   F = fun() ->
+     qlc:e(QH)
+       end,
+   {atomic, L} = mnesia:transaction(F),
+   Success = fun(X) when is_tuple(X)-> lists:nth(9,tuple_to_list(X)) =:=success end,
+   SuccessTimes = lists:filter(Success,L),
+   Faile = fun(X) when is_tuple(X)-> lists:nth(9,tuple_to_list(X)) =:=waiting end,
+   FaileTimes = lists:filter(Faile,L),
+   lager:info("~nSumTimes = ~p ~n  SuccessTimes = ~p ~n  FaileTimes = ~p ~n",[length(L),length(SuccessTimes),length(FaileTimes)]).
+
+
+
+
+
+
 
 

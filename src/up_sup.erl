@@ -18,6 +18,7 @@
 -export([init/1]).
 
 -define(SERVER, ?MODULE).
+-define(RAND_INDEX, 2000).
 -define(MUPSERVER,up_server).
 
 %%%===================================================================
@@ -35,6 +36,7 @@
 start_link() ->
   supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 start_child(MchtId) ->
+  timer:sleep(3000 +  rand:uniform(?RAND_INDEX)),
   supervisor:start_child(?SERVER,[MchtId]).
 
 %%%===================================================================

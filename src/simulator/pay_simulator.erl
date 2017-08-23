@@ -11,7 +11,7 @@
 -include_lib("xmerl/include/xmerl.hrl").
 -include("../include/store.hrl").
 -include_lib("stdlib/include/qlc.hrl").
--define( PRIVATEKEY , simulator_enc:get_private_key("src/keys/private_key.pem", "")).
+-define( PRIVATEKEY , simulator_env:private_key()).
 
 %% API
 -export([send_mcht_req/0,start/2,start/3]).

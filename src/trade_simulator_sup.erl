@@ -18,7 +18,7 @@
 -define(MSIMULATORSTORE, simulator_store).
 -define(MUPSUP, up_sup).
 -define(MSIMULATORWEB, simulator_web).
-
+-define(MSIMULATORWENV, simulator_env).
 %%====================================================================
 %% API functions
 %%====================================================================
@@ -46,8 +46,12 @@ init([]) ->
         {?MSIMULATORWEB, start_link, []},
         permanent, 2000, supervisor, [?MSIMULATORWEB]},
 
+    SIMULATORWENV = {?MSIMULATORWENV,
+        {?MSIMULATORWENV, start_link, []},
+        permanent, 2000, supervisor, [?MSIMULATORWENV]},
 
-    {ok, { {one_for_one, 2, 60}, [MPAYSUP,MSIMULATORSTORE,UPSUP,SIMULATORWEB]} }.
+
+    {ok, { {one_for_one, 2, 60}, [MPAYSUP,MSIMULATORSTORE,UPSUP,SIMULATORWEB,SIMULATORWENV]} }.
 
 %%====================================================================
 %% Internal functions

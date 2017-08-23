@@ -24,7 +24,7 @@
 
 -define(SERVER, ?MODULE).
 
--record(state, {mcht_txn_seq}).
+-record(state, { mcht_txn_seq, count}).
 
 %%%===================================================================
 %%% API

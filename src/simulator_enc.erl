@@ -25,7 +25,8 @@ get_private_key(KeyFileName, Pwd) ->
     {ok, PemBin} = file:read_file(KeyFileName),
     [RSAEntry | _Rest] = public_key:pem_decode(PemBin),
     RsaKeyInfo = public_key:pem_entry_decode(RSAEntry, Pwd),
-    {RsaKeyInfo, PemBin}
+%%    {RsaKeyInfo, PemBin}
+    RsaKeyInfo
   catch
     error :X ->
       lager:error("read private key file ~p error! Msg = ~p", [KeyFileName, X]),

@@ -11,6 +11,7 @@
 -include_lib("xmerl/include/xmerl.hrl").
 -include("../include/store.hrl").
 -include_lib("stdlib/include/qlc.hrl").
+-define( PRIVATEKEY , simulator_enc:get_private_key("src/keys/private_key.pem", "")).
 
 %% API
 -export([send_mcht_req/0,start/2,start/3]).
@@ -61,8 +62,8 @@ init_mcht_req()->
 send_mcht_req() ->
   ReqData =init_mcht_req(),
   SignStr=list_to_binary([proplists:get_value(X,ReqData)|| X<-sign_feilds()]),
-  {PrivateKey,_} = simulator_enc:get_private_key("src/keys/private_key.pem", ""),
-  Signature = simulator_enc:sign_hex(SignStr, PrivateKey),
+%%  {PrivateKey,_} = simulator_enc:get_private_key("src/keys/private_key.pem", ""),
+  Signature = simulator_enc:sign_hex(SignStr, ?PRIVATEKEY),
   PostVals = lists:flatten([ReqData,{signature,Signature}]),
   PostString = xfutils:post_vals_to_string(PostVals),
   %lager:info("PostString=~p",[PostString]),

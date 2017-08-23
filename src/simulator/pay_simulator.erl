@@ -29,7 +29,7 @@
 %%    end,
 %%  lists:foldl( F,[TimesPerSecond,TotalTimes],lists:seq(1,TotalTimes)).
 
-start(TimesPerSecond,TotalTimes)->
+start(TimesPerSecond,TotalTimes) when TimesPerSecond >=0,TotalTimes >=0 ->
   start(TimesPerSecond,TotalTimes,TimesPerSecond).
 
 start(_,0,_) ->
@@ -40,7 +40,6 @@ start(0,TotalTimes,TimesPerSecond) ->
 start(TimesPerSecond,TotalTimes,TimesPerSecond2) ->
   pay_sup:start_child(),
   start(TimesPerSecond - 1 ,TotalTimes - 1 ,TimesPerSecond2).
-
 
 
 sign_feilds() ->
@@ -54,8 +53,8 @@ init_mcht_req()->
     ,{tranTime,erlang:list_to_binary(lists:sublist(xfutils:now(txn),9,14))}
     ,{tranAmt,<<"100">>}
     ,{orderDesc,<<"{pI=test,aI=03429500040006212}">>}
-    ,{trustBackUrl,<<"http://localhost:9999/pg/pay_succ_info">>}
-    ,{trustFrontUrl,<<"http://localhost:9999/pg/pay_mcht_front">>}
+    ,{trustBackUrl,xfutils:get_path(trade_simulator,mcht_back_url)}
+    ,{trustFrontUrl,xfutils:get_path(trade_simulator,mcht_front_url)}
   ].
 
 
@@ -67,7 +66,7 @@ send_mcht_req() ->
   PostVals = lists:flatten([ReqData,{signature,Signature}]),
   PostString = xfutils:post_vals_to_string(PostVals),
   %lager:info("PostString=~p",[PostString]),
-  Url = "http://localhost:8888/pg/pay/",
+  Url = xfutils:get_path(trade_simulator,mcht_pay_req),
  % RequestResult = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
   %lager:info("Notify result = ~p~n ,post_vals=~p", [RequestResult, PostVals])
 
@@ -75,15 +74,12 @@ send_mcht_req() ->
     {ok,{{_,RespCode,_},_,Body}} ->
       UpValueLists = parse_up_html(Body),
 %%      record_req_log(ReqData,XmlElt,integer_to_binary(RespCode));
-     save(ReqData,UpValueLists,RespCode),
-     record_req_log(ReqData,UpValueLists,RespCode);
-    _-> save(ReqData,[{<<>>,<<>>}],<<"fail_connect">>)
-  end,
-  up_sup:start_child(proplists:get_value(tranId,ReqData))
-
-  %{ok,{_,_,Body}} = httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []),
-  %XmlElt = parse_up_html(Body)
-  .
+      save(ReqData,UpValueLists,RespCode),
+      record_req_log(ReqData,UpValueLists,RespCode),
+      up_sup:start_child(proplists:get_value(tranId,ReqData));
+    ErrorMsg-> save(ReqData,[{<<>>,<<>>}],<<"fail_connect">>),
+      lager:info("http response ErrorMsg = ~p",[ErrorMsg])
+  end.
 
 parse_up_html(UpHtml) ->
   {<<"html">>,[],[_, {<<"body">>,[],[ {<<"form">>,_,FormBody } ] } ] }= mochiweb_html:parse(UpHtml),
@@ -161,11 +157,26 @@ record_req_log(ReqData,RespData,RespCode) ->
      qlc:e(QH)
        end,
    {atomic, L} = mnesia:transaction(F),
+%%   The number of successful statistics
    Success = fun(X) when is_tuple(X)-> lists:nth(9,tuple_to_list(X)) =:=success end,
    SuccessTimes = lists:filter(Success,L),
-   Faile = fun(X) when is_tuple(X)-> lists:nth(9,tuple_to_list(X)) =:=waiting end,
+
+%%   The number of failed statistic
+   Faile = fun(X) when is_tuple(X)->
+     lists:nth(9,tuple_to_list(X)) =:=waiting andalso
+     lists:nth(7,tuple_to_list(X)) =/= <<"null">>
+     end,
    FaileTimes = lists:filter(Faile,L),
-   lager:info("~nSumTimes = ~p ~n  SuccessTimes = ~p ~n  FaileTimes = ~p ~n",[length(L),length(SuccessTimes),length(FaileTimes)]).
+
+%%   The number of server no paying response
+   Faile2 = fun(X) when is_tuple(X)->
+     lists:nth(9,tuple_to_list(X)) =:=waiting andalso
+     lists:nth(7,tuple_to_list(X)) =:= <<"null">>
+     end,
+   NoResponde = lists:filter(Faile2,L),
+
+   io:format("~nSumTimes = ~p ~n  SuccessTimes = ~p ~n  FaileTimes = ~p ~n  NoResponde = ~p ~n ",
+     [length(L),length(SuccessTimes),length(FaileTimes),length(NoResponde)]).
 
 
 

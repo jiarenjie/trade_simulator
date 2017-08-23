@@ -24,7 +24,7 @@
 
 -define(SERVER, ?MODULE).
 
--record(state, {mchtid}).
+-record(state, {mcht_txn_seq}).
 
 %%%===================================================================
 %%% API
@@ -39,7 +39,6 @@
 -spec(start_link(MchtId :: binary()) ->
   {ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
 start_link(MchtId) ->
-  lager:debug("up_server started!~n"),
   gen_server:start_link( ?MODULE, [MchtId], []).
 %%%===================================================================
 %%% gen_server callbacks
@@ -59,8 +58,8 @@ start_link(MchtId) ->
 -spec(init(Args :: term()) ->
   {ok, State :: #state{}} | {ok, State :: #state{}, timeout() | hibernate} |
   {stop, Reason :: term()} | ignore).
-init([MchtId]) ->
-  {ok, #state{mchtid = MchtId},0}.
+init([MchtOrderId]) ->
+  {ok, #state{mcht_txn_seq = MchtOrderId},0}.
 
 %%--------------------------------------------------------------------
 %% @private
@@ -110,10 +109,10 @@ handle_cast(_Request, State) ->
   {noreply, NewState :: #state{}, timeout() | hibernate} |
   {stop, Reason :: term(), NewState :: #state{}}).
 
-handle_info(timeout, #state{mchtid = MchtId} = State) ->
-  OrderId = get_orderId_info(MchtId),
-  lager:debug("OrderId = ~p~n",[OrderId]),
-  send_back_notice(OrderId),
+handle_info(timeout, #state{mcht_txn_seq = MchtOrderId} = State) ->
+  UPModle = get_orderId_info(MchtOrderId),
+  lager:debug("UPModle = ~p~n",[UPModle]),
+  send_back_notice(UPModle,MchtOrderId),
   {stop, normal,State};
 handle_info(_Info, State) ->
   {noreply, State}.
@@ -152,22 +151,22 @@ code_change(_OldVsn, State, _Extra) ->
 %%% Internal functions
 %%%===================================================================
 
-send_back_notice(Modle) when is_tuple(Modle)->
-  {UpMerID,UpTxnTime,UpOderid} =Modle,
+send_back_notice(Modle,MchtOrderId) when is_list(Modle)->
+  [{txn_log,_,_,_,UpMerID,UpTxnTime,UpOrderId,_,_,_}] =Modle,
   PostVals = [{<<"accessType">>,<<"0">>}
     ,{<<"bizType">>,<<"000201">>}
     ,{<<"certId">>,<<"69597475696">>}
     ,{<<"currencyCode">>,<<"156">>}
     ,{<<"encoding">>,<<"UTF-8">>}
     ,{<<"merId">>,UpMerID}
-    ,{<<"orderId">>,UpOderid}
+    ,{<<"orderId">>,UpOrderId}
     ,{<<"queryId">>,<<"201708051218403583118">>}
     ,{<<"reqReserved">>,<<"A2568E">>}
     ,{<<"respCode">>,<<"00">>}
     ,{<<"respMsg">>,<<"Success!">>}
     ,{<<"settleAmt">>,<<"100">>}
     ,{<<"settleCurrencyCode">>,<<"156">>}
-    ,{<<"settleDate">>,<<"0805">>}
+    ,{<<"settleDate">>, xfutils:yesterday(mmdd)}
     ,{<<"signMethod">>,<<"01">>}
     ,{<<"traceNo">>,<<"358311">>}
     ,{<<"traceTime">>,<<"0805121840">>}
@@ -179,17 +178,14 @@ send_back_notice(Modle) when is_tuple(Modle)->
     ,{<<"signature">>,<<"piXuP+gMnf8kbu9tzcDkHSc7nC5520IUk5vjFxGNusDdmhV08d6/csWYG6z3K5DRvZ+1CCVZckdCaVdoZ+GtMZcIvy0DSU290u1ik3oijHeeiSw8tFq/Qn2rVzKPJngxuhkhhtJXZ8qrjC+BQyltX9Y22gl5JjlXXGy2XOJ3cQTKAgp4niMO4vOHrHZlxsfASsQ1kLIqQ3CM1pi8cCcZ8Z13zqYskl1RfCD4ZM6HxdOJtQjJ2TFH3sxgN0p69ZwaWw+ht1KK9+yPxZ1g0nYN3nRuovA0dranDsfKm9QoyD6stQPFIA1/Dtu3CpKu0AVvUbGb5cGygKCEjxYsGnPRFg==">>}],
   PostString = xfutils:post_vals_to_string(PostVals),
   %lager:info("PostString=~p",[PostString]),
-  Url = "http://localhost:8888/pg/pay_succ_info",
+  Url = xfutils:get_path(trade_simulator,zr_back_notice),
   case httpc:request(post,{Url, [], "application/x-www-form-urlencoded", PostString}, [], []) of
-
     HTTPRESPONSE->
-      lager:debug("HTTPRESPONSE = ~p~n",[HTTPRESPONSE]);
-    {ok,{{_,RespCode,_},_,Body}} ->
-      lager:debug("UP_RESPONSE_BODY = ~p~n",[Body])
+      lager:info("MchtOrderId =~p HTTPRESPONSE = ~p~n",[MchtOrderId,HTTPRESPONSE])
   end.
 
-get_orderId_info(MchtId) ->
-  [{txn_log,_,_,_,UpMerID,UpTxnTime,UpOderId,_,_,_}] = mnesia:dirty_read(txn_log,MchtId),
-  {UpMerID,UpTxnTime,UpOderId}.
+get_orderId_info(MchtOrderId) ->
+  mnesia:dirty_read(txn_log,MchtOrderId).
+
 
 

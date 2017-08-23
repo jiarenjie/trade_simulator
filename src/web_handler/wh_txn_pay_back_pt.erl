@@ -25,7 +25,7 @@ handle(Req, State) ->
 
   %% get query string
   {ok, PostVals, Req2} = xfutils:post_get_qs(Req),
-  lager:debug("in /pay_succ_front, PostVals = ~p", [PostVals]),
+  lager:info("in /pay_succ_front, PostVals = ~p", [PostVals]),
 
   {StatusCode, _ReplyBody} = process_back_notice(PostVals),
 

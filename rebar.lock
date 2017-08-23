@@ -19,7 +19,7 @@
   0},
  {<<"xfutils">>,
   {git,"https://github.com/simonxu72/erlang-xfutils",
-       {ref,"44b92c43efaba7dd57fc05032e8feee6df9c17a1"}},
+       {ref,"6f9eedd86972010e0483237bf2fafc3b40546db9"}},
   0}]}.
 [
 {pkg_hash,[
